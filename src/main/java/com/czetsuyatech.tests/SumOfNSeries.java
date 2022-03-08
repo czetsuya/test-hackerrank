@@ -1,4 +1,4 @@
-package com.czetsuyatech;
+package com.czetsuyatech.tests;
 
 import java.util.ArrayList;
 import java.util.List;

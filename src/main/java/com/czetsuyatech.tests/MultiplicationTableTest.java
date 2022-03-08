@@ -1,9 +1,5 @@
-package com.czetsuyatech;
+package com.czetsuyatech.tests;
 
-/**
- * Prints the multiplication table.
- * @author Edward P. Legaspi | czetsuya@gmail.com
- */
 public class MultiplicationTableTest {
 
   public static void main(String[] args) {
@@ -24,7 +20,7 @@ public class MultiplicationTableTest {
     for (int p = 0; p < 9; p += 3) {
       for (int i = 1; i <= 9; i++) {
         for (int j = 1; j <= 3; j++) {
-          System.out.print((p + j)  + "*" + i + "=" + i * (p + j) + "   ");
+          System.out.print((p + j) + "*" + i + "=" + i * (p + j) + "   ");
         }
         System.out.println();
       }
