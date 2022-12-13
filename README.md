@@ -49,3 +49,10 @@ M - 1000
 | IV            | 4      | 5 - 1        |
 | XC            | 90     | 100 - 10     |
 | CM            | 900    | 1000 - 10    |
+
+4. Find the longest substring without the duplicate characters. Given S only contains lowercase alphabets
+
+| Input  | Output |
+|--------|--------|
+| abcde  | abcde  |
+| abcdec | dec    |
