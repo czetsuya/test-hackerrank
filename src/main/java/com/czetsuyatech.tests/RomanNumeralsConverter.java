@@ -22,29 +22,29 @@ public class RomanNumeralsConverter {
 
   }
   
-  public static Integer toInt(String input) {
-
-    Integer result = 0;
-
-    Character prevC = null;
-    for (char c : input.toCharArray()) {
-
-      // IV
-
-      if (prevC != null && (romanToNumericMap.get(prevC) < romanToNumericMap.get(c))) {
-        int prevVal = romanToNumericMap.get(prevC);
-        int currVal = romanToNumericMap.get(c);
-        result += currVal - (prevVal * 2);
-        continue;
-      }
-
-      prevC = c;
-
-      result += romanToNumericMap.get(c);
-    }
-
-    return result;
-  }
+//  public static Integer toInt(String input) {
+//
+//    Integer result = 0;
+//
+//    Character prevC = null;
+//    for (char c : input.toCharArray()) {
+//
+//      // IV
+//
+//      if (prevC != null && (romanToNumericMap.get(prevC) < romanToNumericMap.get(c))) {
+//        int prevVal = romanToNumericMap.get(prevC);
+//        int currVal = romanToNumericMap.get(c);
+//        result += currVal - (prevVal * 2);
+//        continue;
+//      }
+//
+//      prevC = c;
+//
+//      result += romanToNumericMap.get(c);
+//    }
+//
+//    return result;
+//  }
 
   public static Integer toInt2(String input) {
 
