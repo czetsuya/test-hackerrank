@@ -56,3 +56,16 @@ M - 1000
 |--------|--------|
 | abcde  | abcde  |
 | abcdec | dec    |
+
+
+number of island question
+https://leetcode.com/problems/number-of-provinces/
+https://leetcode.com/discuss/interview-question/1184534/amazon-oa-sde2-optimizing-box-weight-gift-grouping
+https://leetcode.com/discuss/interview-question/1273052/amazon-oa-sde2
+
+friends of friends
+twisted merge sort
+priority queue
+depth first search
+count of swaps
+combination sum
