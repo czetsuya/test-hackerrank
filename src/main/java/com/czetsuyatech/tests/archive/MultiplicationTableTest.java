@@ -1,4 +1,4 @@
-package com.czetsuyatech.tests;
+package com.czetsuyatech.tests.archive;
 
 public class MultiplicationTableTest {
 

@@ -1,4 +1,4 @@
-package com.czetsuyatech.tests;
+package com.czetsuyatech.tests.archive;
 
 public class InterfaceTest implements Interface1, Interface2 {
 

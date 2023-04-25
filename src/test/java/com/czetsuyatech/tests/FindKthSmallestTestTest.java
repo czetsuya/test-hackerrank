@@ -1,5 +1,6 @@
 package com.czetsuyatech.tests;
 
+import com.czetsuyatech.tests.archive.FindKthSmallestTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package com.czetsuyatech.tests.graph;
+package com.czetsuyatech.tests.archive.graph;
 
 public class GraphTest {
 

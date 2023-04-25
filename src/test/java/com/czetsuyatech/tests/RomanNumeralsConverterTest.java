@@ -1,5 +1,6 @@
 package com.czetsuyatech.tests;
 
+import com.czetsuyatech.tests.archive.RomanNumeralsConverter;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

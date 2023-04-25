@@ -1,4 +1,4 @@
-package com.czetsuyatech.tests.bst;
+package com.czetsuyatech.tests.archive.bst;
 
 public class Node {
 

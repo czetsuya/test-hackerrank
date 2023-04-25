@@ -2,6 +2,7 @@ package com.czetsuyatech.tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.czetsuyatech.tests.archive.SlidingWindow;
 import org.junit.jupiter.api.Test;
 
 class SlidingWindowTest {
