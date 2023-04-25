@@ -32,42 +32,42 @@ class GiftingGroups {
    * The function is expected to return an INTEGER.
    * The function accepts STRING_ARRAY related as parameter.
    */
-
   public static int countGroups(List<String> related) {
 
     int count = 0;
     int length = related.size();
     int[][] matrix = convertToArray(related);
 
-    for (int i = 0; i < length; i++) {
-      if (matrix[i][i] == 1) {
-        count += 1;
-        dfs(i, length, matrix);
+    for (int row = 0; row < length; row++) {
+      if (matrix[row][row] == 1) {
+        count++;
+        dfs(row, length, matrix);
       }
     }
 
     return count;
   }
 
-  private static void dfs(int i, int length, int[][] matrix) {
+  private static void dfs(int row, int length, int[][] matrix) {
 
-    if (matrix[i][i] == 0) {
+    if (matrix[row][row] == 0) {
       return;
     }
 
-    for (int j = 0; j < length; j++) {
-      if (matrix[i][j] == 1) {
-        matrix[i][j] = 0;
-        dfs(j, length, matrix);
+    for (int col = 0; col < length; col++) {
+      if (matrix[row][col] == 1) {
+        matrix[row][col] = 0;
+        dfs(col, length, matrix);
       }
     }
   }
 
   private static int[][] convertToArray(List<String> input) {
 
-    int result[][] = new int[input.size()][input.get(0).length()];
+    int length = input.size();
+    int result[][] = new int[length][length];
 
-    for (int i = 0; i < input.size(); i++) {
+    for (int i = 0; i < length; i++) {
       char[] charArr = input.get(i).toCharArray();
       for (int j = 0; j < charArr.length; j++) {
         result[i][j] = Character.getNumericValue(charArr[j]);

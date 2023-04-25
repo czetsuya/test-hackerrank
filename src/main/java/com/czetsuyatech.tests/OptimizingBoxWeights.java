@@ -5,11 +5,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.PriorityQueue;
-import java.util.stream.Collectors;
+import java.util.Queue;
+import java.util.concurrent.atomic.LongAccumulator;
 
-/**
- * https://leetcode.com/discuss/interview-question/1184534/amazon-oa-sde2-optimizing-box-weight-gift-grouping
- */
 class OptimizingBoxWeights {
 
   public static void main(String[] args) {
@@ -18,7 +16,7 @@ class OptimizingBoxWeights {
 //    List<Integer> input = Arrays.asList(5, 3, 2, 4, 1, 2); // 4, 5
     List<Integer> input = Arrays.asList(4, 2, 5, 1, 6); // 5, 6
 
-    System.out.println(OptimizingBoxWeights.minimalHeaviestSetA(input));
+    System.out.println(minimalHeaviestSetA(input));
   }
 
   /*
@@ -27,63 +25,35 @@ class OptimizingBoxWeights {
    * The function is expected to return an INTEGER_ARRAY.
    * The function accepts INTEGER_ARRAY arr as parameter.
    */
-
-  public static List<Integer> minimalHeaviestSetA2(List<Integer> arr) {
-
-    // sort the array
-    arr = arr.stream().sorted().collect(Collectors.toList());
-
-    int pointer = 1;
-    int size = arr.size() - 1;
-
-    List<Integer> lowerSet = arr.subList(0, size - pointer);
-    List<Integer> higherSet = arr.subList(size - pointer, arr.size());
-
-    while (higherSet.size() < lowerSet.size()) {
-      int higherSetSum = sumInt(higherSet);
-      int lowerSetSum = sumInt(lowerSet);
-
-      if (higherSetSum > lowerSetSum) {
-        return higherSet;
-
-      } else {
-        pointer++;
-        lowerSet = arr.subList(0, size - pointer);
-        higherSet = arr.subList(size - pointer, arr.size());
-      }
-    }
-
-    return null;
-  }
-
-  // MaxQueue, PriorityQueue
   public static List<Integer> minimalHeaviestSetA(List<Integer> arr) {
 
-    PriorityQueue<Integer> pq = new PriorityQueue<>((o1, o2) -> Integer.compare(o2, o1));
-    long totalWeight = 0;
+    Queue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
+    LongAccumulator valuesAccumulator = new LongAccumulator(Long::sum, 0);
 
-    for (Integer integer : arr) {
-      totalWeight += integer;
-      pq.offer(integer);
+    for (Integer i : arr) {
+      queue.offer(i);
+      valuesAccumulator.accumulate(i);
     }
 
-    List<Integer> boxAElement = new ArrayList<>();
-    long currentWeight = 0;
-    for (int i = 0; i < arr.size(); i++) {
-      int highWeight = pq.poll();
-      currentWeight += highWeight;
-      boxAElement.add(highWeight);
-      if (currentWeight > totalWeight - currentWeight) {
+    System.out.println("sum=" + valuesAccumulator.get());
+    System.out.println("queue=" + queue);
+
+    List<Integer> optimizedWeights = new ArrayList<>();
+    Long totalWeight = valuesAccumulator.get();
+    Long accumulatedWeight = 0L;
+
+    for (Integer i : arr) {
+      int currentWeight = queue.poll();
+      accumulatedWeight += currentWeight;
+      optimizedWeights.add(currentWeight);
+
+      if (accumulatedWeight > totalWeight - accumulatedWeight) {
         break;
       }
     }
 
-    Collections.reverse(boxAElement);
-    return boxAElement;
-  }
+    Collections.reverse(optimizedWeights);
 
-  private static int sumInt(List<Integer> ints) {
-
-    return ints.stream().collect(Collectors.summingInt(Integer::intValue));
+    return optimizedWeights;
   }
 }
