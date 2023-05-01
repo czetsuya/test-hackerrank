@@ -1,4 +1,4 @@
-package main.com.czetsuyatech;
+package com.czetsuyatech.tests.archive;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -105,13 +105,13 @@ class ShortestPathNonWeighted {
       queue.add(start);
 
       while (!queue.isEmpty()) {
-        Node current_node = queue.poll();
+        Node currentNode = queue.poll();
         // traverse along the node's breadth
-        for (Node node : current_node.neighbors) {
+        for (Node node : currentNode.neighbors) {
           if (!node.visited) {
             node.visited = true;
             queue.add(node);
-            node.prev = current_node;
+            node.prev = currentNode;
             if (node == end) {
               queue.clear();
               break;
