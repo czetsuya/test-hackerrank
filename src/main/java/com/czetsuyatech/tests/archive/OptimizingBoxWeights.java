@@ -12,9 +12,9 @@ class OptimizingBoxWeights {
 
   public static void main(String[] args) {
 
-//    List<Integer> input = Arrays.asList(6, 7, 8, 8, 9, 10, 10, 10, 10);
+    List<Integer> input = Arrays.asList(6, 7, 8, 8, 9, 10, 10, 10, 10);
 //    List<Integer> input = Arrays.asList(5, 3, 2, 4, 1, 2); // 4, 5
-    List<Integer> input = Arrays.asList(4, 2, 5, 1, 6); // 5, 6
+//    List<Integer> input = Arrays.asList(4, 2, 5, 1, 6); // 5, 6
 
     System.out.println(minimalHeaviestSetA(input));
   }
